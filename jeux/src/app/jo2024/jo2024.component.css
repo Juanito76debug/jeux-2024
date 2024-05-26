@@ -1,0 +1,40 @@
+.img-style {
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.mascotte-style {
+  height: 1.5em;
+  vertical-align: middle;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+header,
+main,
+aside,
+footer {
+  padding: 20px;
+}
+
+section,
+aside {
+  margin-bottom: 20px;
+}
