@@ -1,2 +1,2 @@
-# Jeux2024
-Réseau Social
+# jeux-2024
+réseau
