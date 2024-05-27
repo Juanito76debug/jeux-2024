@@ -1,0 +1,10 @@
+.img-style {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .mascotte-style {
+    height: 1.5em;
+    vertical-align: middle;
+  }
