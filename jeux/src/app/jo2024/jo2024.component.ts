@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './jo2024.component.html',
-  styleUrl: './jo2024.component.css'
+  styleUrls: ['./jo2024.component.css']
 })
 export class Jo2024Component {
 

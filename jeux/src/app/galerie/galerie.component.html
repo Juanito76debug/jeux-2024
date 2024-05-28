@@ -5,123 +5,20 @@
 
 <div class="container">
   <div class="row gallery">
-    <h1>Flammes Olympiques</h1>
+    <h1>Flammes et lieux Olympiques</h1>
 
     <div class="row mb-3">
-      <div class="col-6 offset-3 col-lg-4 offset-lg-1">
-        <img
-          src="assets/flamme-olympique.avif"
-          alt="Flamme Olympique avec florent Manaudou"
-          class="img-fluid rounded-circle"
-        />
-      </div>
-      <div
-        class="col-10 offset-1 col-lg-5 offset-lg-1 d-flex justify-content-center align-items-center"
-      >
+      <div *ngFor="let lieu of lieuxOlympiques" class="col-6 offset-3 col-lg-4 offset-lg-1">
+        <img [src]="lieu.image" [alt]="lieu.nom" class="img-fluid rounded-circle" />
         <figure>
           <blockquote class="blockquote text-center">
-            <p>
-              Arrivée de Florent Manaudou avec la Flamme olympique, du Belem
-              jusqu'à Marseille en bateau
-            </p>
+            <p>{{ lieu.description }}</p>
           </blockquote>
-          <figcaption class="blockquote-footer text-end">
-            Florent Manaudou
-          </figcaption>
+          <figcaption class="blockquote-footer text-end">{{ lieu.auteur }}</figcaption>
         </figure>
       </div>
-      <br />
-      <h2>Lieux Olympiques à Paris</h2>
-      <div class="row mb-3">
-        <div class="col-6 offset-3 col-lg-4 offset-lg-1 order-lg-3">
-          <img
-            src="assets/centre-aquatique.webp"
-            alt="centre aquatique"
-            class="img-fluid rounded-circle"
-          />
-        </div>
-        <div
-          class="col-10 offset-1 col-lg-5 offset-lg-1 order-lg-1 justify-content-center align-items-center"
-        >
-          <figure>
-            <blockquote class="blockquote text-center">
-              <p>Natation artistique, plongée et waterpolo</p>
-            </blockquote>
-            <figcaption class="blockquote-footer text-end">
-              Centre aquatique
-            </figcaption>
-          </figure>
-        </div>
-        <br />
-        <div class="row mb-3">
-          <div class="col-6 offset-3 col-lg-4 offset-lg-1">
-            <img
-              src="assets/grand-palais.avif"
-              alt="Grand Palais"
-              class="img-fluid rounded-circle"
-            />
-          </div>
-          <div
-            class="col-10 offset-1 col-lg-5 offset-lg-1 d-flex justify-content-center align-items-center"
-          >
-            <figure>
-              <blockquote class="blockquote text-center">
-                <p>Escrime et Taekwondo</p>
-              </blockquote>
-              <figcaption class="blockquote-footer text-end">
-                Grand Palais
-              </figcaption>
-            </figure>
-          </div>
-          <br />
-          <div class="row mb-3">
-            <div class="col-6 offset-3 col-lg-4 offset-lg-1 order-lg-1">
-              <img
-                src="assets/roland-garros.avif"
-                alt="Roland Garros"
-                class="img-fluid rounded-circle"
-              />
-            </div>
-            <div
-              class="col-10 offset-1 col-lg-5 offset-lg-1 order-lg-1 d-flex justify-content-center align-items-center"
-            >
-              <figure>
-                <blockquote class="blockquote text-center">
-                  <p>Boxe et Tennis</p>
-                </blockquote>
-                <figcaption class="blockquote-footer text-end">
-                  Roland Garros
-                </figcaption>
-              </figure>
-            </div>
-            <br />
-
-            <div class="row mb-3">
-              <div class="col-6 offset-3 col-lg-4 offset-lg-1 order-lg-3">
-                <img
-                  src="assets/stade-de-france.avif"
-                  alt="Stade de France"
-                  class="img-fluid rounded-circle"
-                />
-              </div>
-              <div
-                class="col-10 offset-1 col-lg-5 offset-lg-1 order-lg-1 d-flex justify-content-center align-items-center"
-              >
-                <figure>
-                  <blockquote class="blockquote text-center">
-                    <p>Athlétisme et Rugby à sept</p>
-                  </blockquote>
-                  <figcaption class="blockquote-footer text-end">
-                    Stade de France
-                  </figcaption>
-                </figure>
-              </div>
               <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
               <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>

@@ -7,7 +7,7 @@ import { Jo2024Component } from '../jo2024/jo2024.component';
   standalone: true,
   imports: [Jo2024Component],
   templateUrl: './reseau-social.component.html',
-  styleUrl: './reseau-social.component.css'
+  styleUrls: ['./reseau-social.component.css']
 })
 export class ReseauSocialComponent {
 

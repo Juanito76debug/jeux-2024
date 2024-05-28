@@ -9,7 +9,7 @@ import { Jo2024Component } from './jo2024/jo2024.component';
   imports: [ReseauSocialComponent, Jo2024Component,RouterOutlet],
 
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {}
   
