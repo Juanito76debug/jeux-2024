@@ -11,6 +11,9 @@ import { Jo2024Component } from './jo2024/jo2024.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {}
+export class AppComponent {
+
+  title = 'JEUX_2024';
+}
   
 

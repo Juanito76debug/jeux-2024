@@ -1,0 +1,3 @@
+<div *ngIf="hasRole('admin')">Contenu pour admin</div>
+<div *ngIf="hasRole('member')">Contenu pour membre</div>
+<div *ngIf="!currentUser">Contenu pour non connecté</div>

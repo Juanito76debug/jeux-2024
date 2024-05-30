@@ -13,7 +13,7 @@ export interface Photos {
 @Component({
   selector: 'app-galerie',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [Jo2024Component, RouterModule, CommonModule],
   templateUrl: './galerie.component.html',
   styleUrls: ['./galerie.component.css'],
 })
