@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component,} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ReseauSocialComponent } from './reseau-social/reseau-social.component';
 import { Jo2024Component } from './jo2024/jo2024.component';
