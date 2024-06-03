@@ -7,7 +7,7 @@ import { RealTimeService } from './real-time.service';
   // standalone: true,
   // imports: [],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   userRole: UserRole = UserRole.Visitor;
