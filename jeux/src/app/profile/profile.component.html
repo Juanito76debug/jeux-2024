@@ -1,0 +1,17 @@
+<ul>
+    <li *ngFor="let profile of profiles">
+
+<div class="profile-container">
+    <img [src] = "userProfile.photos" alt = "Photo de profil" class = "profile-picture">
+    <h2>{{userProfile.pseudonyme}}</h2>
+    <p><strong>Nom :</strong> {{userProfile.nom}}</p>
+    <p><strong>Prénom :</strong> {{userProfile.prenom}}</p>
+    <p><strong>Date de naissance :</strong> {{userProfile.dateNaissance}}</p>
+    <p><strong>Email:</strong>{{ userProfile.email}}</p>
+    <p><strong>Genre:</strong> {{userProfile.genres}}</p>
+    <p><strong>Présentation:</strong> {{userProfile.presentation}}</p>
+    <p><strong>Préférences</strong>{{userProfile.preferences}}</p>
+
+</div>
+    </li>
+</ul>

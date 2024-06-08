@@ -1,0 +1,20 @@
+<div class="search-container">
+  <input
+    type="text"
+    (input)="onSearchChange($event)"
+    placeholder="Rechercher un membre..."
+  />
+  <button (click)="search()">Rechercher</button>
+</div>
+
+<div class="member-list">
+  <div *ngFor="let member of members" class="member-item">
+    <img [src]="member.photos" alt="{{ member.pseudonyme }}" />
+
+    <div class="member-info">
+      <h2>{{ member.pseudonyme }}</h2>
+      <p>{{ member.nom }} {{ member.prenom }}</p>
+      <button (click)="addFriend(member)">Ajouter en ami</button>
+    </div>
+  </div>
+</div>

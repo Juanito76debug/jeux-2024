@@ -1,0 +1,17 @@
+<ul>
+    <li *ngFor="let friend of friends">
+    <div class ="friend-card">
+    <img [src] = "friend.photos" alt = "{{friend.pseudonyme}}">
+    <h2>{{friend.pseudonyme}}</h2>
+    <p><strong>Nom :</strong> {{friend.nom}}</p>
+    <p><strong>Prénom :</strong> {{friend.prenom}}</p>
+    <p><strong>Date de naissance :</strong> {{friend.dateNaissance}}</p>
+    <p><strong>Email:</strong>{{ friend.email}}</p>
+    <p><strong>Genre:</strong> {{friend.genres}}</p>
+    <p><strong>Présentation:</strong> {{friend.presentation}}</p>
+    <p><strong>Préférences</strong>{{friend.preferences}}</p>
+    
+</div>
+
+</li>
+</ul>

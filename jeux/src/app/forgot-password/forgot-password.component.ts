@@ -1,5 +1,6 @@
 import { Component, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Jo2024Component } from '../jo2024/jo2024.component';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class ResetPasswordService {
 @Component({
   selector: 'app-forgot-password',
   standalone: true,
-  imports: [],
+  imports: [Jo2024Component],
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.css']
 })

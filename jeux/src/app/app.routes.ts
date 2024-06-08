@@ -10,6 +10,9 @@ import { AboutComponent } from './about/about.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FriendListComponent } from './friend-list/friend-list.component';
+import { UserSearchComponent } from './user-search/user-search.component';
 
 export const routes: Routes = [
   { path: 'galerie', component: GalerieComponent, title: 'galerie' },
@@ -44,6 +47,10 @@ export const routes: Routes = [
     canActivate: [MemberAdminGuard],
     title: 'Déconnexion',
   },
+  { path : 'profile', component: ProfileComponent, title: 'Profile'},
+  { path : ' friends', component: FriendListComponent, title: 'friendList'},
+  { path: 'membres', component:UserSearchComponent, title: 'userSearch'},
+  
 
   { path: '', redirectTo: '/jo2024', pathMatch: 'full' },
 ];

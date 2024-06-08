@@ -6,10 +6,12 @@ import { HomeRoutingModule } from "./home-routing.module";
 import { AuthService } from "./auth.service";
 import { RealTimeService } from "./real-time.service";
 
+
+
 @NgModule({
-  declarations: [HomeComponent, LoginComponent],
-  imports: [CommonModule, HomeRoutingModule],
+  declarations: [LoginComponent, HomeComponent],
   providers : [AuthService, RealTimeService],
+  imports: [CommonModule, HomeRoutingModule, NgModule],
 })
 
 export class HomeModule { }
