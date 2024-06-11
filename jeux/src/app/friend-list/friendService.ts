@@ -1,5 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Friend } from "./friend-list.component";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+
 
 @Injectable({
   providedIn: "root"
@@ -20,7 +23,7 @@ export class FriendService {
             preferences : 'Préfère les discussions en plein air et les activités de groupe.'
         }
     ];
-    constructor() { }
+    constructor(private http : HttpClient) { }
 
     getFriends() : Friend[] {
         return this.friends;
@@ -30,8 +33,12 @@ export class FriendService {
         this.friends.push(newFriend);
     }
 
-    removeFriend(friendPseudonyme: string): void {
-        this.friends = this.friends.filter(friend => friend.pseudonyme !== friendPseudonyme);
+    removeFriend(friendPseudonyme: string): Observable<any> {
+        return this.http.delete(`http://localhost:4200/friends/${friendPseudonyme}`);
+        // this.friends = this.friends.filter(friend => friend.pseudonyme !== friendPseudonyme);
     }
+
+    
+
 
 }

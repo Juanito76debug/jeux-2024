@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { UserProfile } from "./profile.component";
 
+
 @Injectable({
   providedIn: "root",
 })
@@ -52,11 +53,16 @@ export class UserService {
 
 }
 
-updateUserProfile(userId: string, updateUserProfile: UserProfile) : void {
+updateUserProfile(pseudonyme: string, updateProfile: UserProfile) : void {
+    const userIndex = this.users.findIndex(u => u.pseudonyme === pseudonyme);
+    if (userIndex !== -1) {
+        this.users[userIndex] = updateProfile;
+    }
 
 }
 
-deleteUserProfile(userId: string) : void {
+deleteUserProfile(pseudonyme: string) : void {
+    this.users = this.users.filter(u=>u.pseudonyme !== pseudonyme);
 
 }
 

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService } from './Search.Service';
 // import { CommonModule } from '@angular/common';
 // import { Jo2024Component } from '../jo2024/jo2024.component';
+import { FormControl } from '@angular/forms';
+import { debounceTime, switchMap, filter, map } from 'rxjs/operators';
+
 
 export interface Member {
   pseudonyme: string;
@@ -19,15 +22,27 @@ export interface Member {
   styleUrls: ['./user-search.component.css'],
 })
 export class UserSearchComponent implements OnInit {
+  
+  searchControl= new FormControl('');
   searchTerm: string = '';
 
   members: Member[] = [];
 
   constructor(private searchService: SearchService) {}
 
+  
+
   ngOnInit(): void {
-    this.members = this.searchService.getMembers();
+    this.searchControl.valueChanges.pipe(
+      map(searchTerm=>searchTerm || ''),
+      filter(searchTerm => searchTerm.trim() !== ''), // Filtrer les valeurs null et les chaînes vides
+      debounceTime(300),
+      switchMap((searchTerm: string) => this.searchService.searchMember(searchTerm))
+    ).subscribe(members => {
+      this.members = members;
+    });
   }
+  
 
   onSearchChange(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -44,4 +59,5 @@ export class UserSearchComponent implements OnInit {
   addFriend(member: Member): void {
     this.searchService.addFriend(member);
   }
+  
 }

@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Member } from "./user-search.component";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
@@ -11,11 +13,11 @@ export class SearchService {
     {pseudonyme: 'Myriam', nom:'Romano', prenom: 'Myriam', email : 'myriam@gmail.com', photos: 'assets/Myriam.png'},
   ];
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
-  searchMember(pseudonyme: string): Member | undefined {
+  searchMember(searchTerm: string): Observable<Member[]> {
     
-    return this.members.find(member => member.pseudonyme=== pseudonyme);
+    return this.http.get<Member[]>(`https://localhost:4200/members/search/${searchTerm}`);
 
   }
 

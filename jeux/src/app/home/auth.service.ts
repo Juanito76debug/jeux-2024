@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../message-post/user.model';
 
 export enum UserRole {
   Visitor = 'visitor',
@@ -13,6 +14,7 @@ export enum UserRole {
 })
 export class AuthService {
   private currentUserRole = new BehaviorSubject<UserRole>(UserRole.Visitor);
+  private currentUser= new BehaviorSubject<User | null>(null);
 
   constructor(private http: HttpClient) {}
 
@@ -46,5 +48,15 @@ export class AuthService {
   logout(): void {
     this.currentUserRole.next(UserRole.Visitor);
   }
+
+  isMemberOrAdmin(): boolean {
+
+    return this.currentUserRole.value === UserRole.Member || this.currentUserRole.value === UserRole.Admin;
+  }
+
+  isAdmin(): boolean {
+    return this.currentUserRole.value === UserRole.Admin;
+  }
+
 
 }

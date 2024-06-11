@@ -13,6 +13,10 @@ import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FriendListComponent } from './friend-list/friend-list.component';
 import { UserSearchComponent } from './user-search/user-search.component';
+import { HomeComponent } from './home/home.component';
+import { MessagePostComponent } from './message-post/message-post.component';
+import { CanPostGuard } from './can-post.guard';
+
 
 export const routes: Routes = [
   { path: 'galerie', component: GalerieComponent, title: 'galerie' },
@@ -22,6 +26,7 @@ export const routes: Routes = [
     component: ReseauSocialComponent,
     title: 'reseau-social',
   },
+  { path: 'home', component: HomeComponent, title: 'home' },
   { path: 'about', component: AboutComponent, title: 'A propos' },
   {
     path: 'signup',
@@ -48,8 +53,9 @@ export const routes: Routes = [
     title: 'Déconnexion',
   },
   { path : 'profile', component: ProfileComponent, title: 'Profile'},
-  { path : ' friends', component: FriendListComponent, title: 'friendList'},
+  { path : 'friends', component: FriendListComponent, title: 'friendList'},
   { path: 'membres', component:UserSearchComponent, title: 'userSearch'},
+  { path : 'publications', component:MessagePostComponent, canActivate : [CanPostGuard], title: 'publications'}, 
   
 
   { path: '', redirectTo: '/jo2024', pathMatch: 'full' },
