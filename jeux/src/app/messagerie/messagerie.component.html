@@ -1,0 +1,34 @@
+<form (submit)="openDiscussion(discussionDetails)">
+  <input
+    type="text"
+    [(ngModel)]="discussionDetails.subject"
+    name="subject"
+    placeholder="Sujet de la discussion"
+  />
+  <button type="submit">Ouvrir une discussion</button>
+</form>
+
+<ul>
+  <li
+    *ngFor="let discussion of discussions"
+    (click)="selectDiscussion(discussion)"
+  >
+    {{ discussion.subject }}
+  </li>
+</ul>
+
+<div class="message-container">
+  <div *ngFor="let message of currentDiscussionMessages">
+    <p>{{ message.content }}</p>
+    <button (click)="deleteMessage(message.id)">Supprimer</button>
+  </div>
+</div>
+
+<form (submit)="sendMessage(messageDetails)">
+  <textarea
+    [(ngModel)]="messageDetails.content"
+    name="content"
+    placeholder="Votre message"
+  ></textarea>
+  <button type="submit">Envoyer</button>
+</form>

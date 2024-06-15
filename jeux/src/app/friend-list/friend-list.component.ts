@@ -2,7 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { FriendService } from './friendService';
 
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Jo2024Component } from '../jo2024/jo2024.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 
 
 export interface Friend {
@@ -21,8 +25,8 @@ export interface Friend {
 
 @Component({
   selector: 'app-friend-list',
-  // standalone: true,
-  // imports: [Jo2024Component, CommonModule],
+  standalone: true,
+  imports: [Jo2024Component, CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './friend-list.component.html',
   styleUrls: ['./friend-list.component.css']
 })

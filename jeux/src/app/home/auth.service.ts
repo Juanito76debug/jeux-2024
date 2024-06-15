@@ -57,6 +57,14 @@ export class AuthService {
   isAdmin(): boolean {
     return this.currentUserRole.value === UserRole.Admin;
   }
-
-
+getCurrentUserId(): string | null {
+  return this.currentUser.value?.id || null;
+}
+canEditMessage(message:any): boolean {
+  const currentUser = this.currentUser.value;
+  if (currentUser) {
+    return message.authorId === currentUser.id || this.isAdmin();
+  }
+  return false;
+}
 }

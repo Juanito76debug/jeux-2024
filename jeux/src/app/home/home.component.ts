@@ -6,10 +6,12 @@ import { RealTimeService } from './real-time.service';
 
 
 
+
+
 @Component({
   selector: 'app-home',
   // standalone: true,
-  // imports: []
+  // imports: [CommonModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

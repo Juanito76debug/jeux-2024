@@ -1,13 +1,16 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
-import { FriendListComponent } from "./friend-list.component";
+
+
 import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
+
 
 @NgModule({
-    declarations: [FriendListComponent],
-    imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
-    exports: [FriendListComponent]
+    declarations: [],
+    imports: [CommonModule, ReactiveFormsModule, HttpClientModule, RouterModule],
+    exports: []
 })
 
 export class FriendListModule { }

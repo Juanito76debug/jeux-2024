@@ -1,1 +1,18 @@
-<p>message-post works!</p>
+<div class = "message-form">
+    <textarea [(ngModel)]="messageContent" placeholder="Ecrivez votre message ici..."></textarea>
+    <button (click)="publishMessage()">publier</button>
+</div>
+
+<div *ngFor=" let message of messages" class = "message">
+
+    <p>{{message.content}}</p>
+    <span>Posté par: {{ message.authorId}}</span>
+    <button *ngIf="canEdit(message)" (click)="deleteMessage(message.id)">Supprimer</button>
+    <button *ngIf="canEdit(message)" (click)="replyToMessage(message)">Répondre</button>
+
+    <div *ngIf="canEdit(message)" class="reply-form">
+
+        <textarea [(ngModel)]="replyContent" placeholder="Ecrivez votre message ici..."></textarea>
+        <button (click)="replyToMessage(message.id)">Répondre</button>
+    </div>
+</div>

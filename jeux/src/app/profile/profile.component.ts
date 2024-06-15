@@ -1,4 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { userModule } from './user.module';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 
 export interface UserProfile {
@@ -18,8 +23,8 @@ export interface UserProfile {
 
 @Component({
   selector: 'app-profile',
-  // standalone: true,
-  // imports: [],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, userModule,RouterModule],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })

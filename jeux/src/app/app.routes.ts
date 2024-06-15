@@ -16,6 +16,7 @@ import { UserSearchComponent } from './user-search/user-search.component';
 import { HomeComponent } from './home/home.component';
 import { MessagePostComponent } from './message-post/message-post.component';
 import { CanPostGuard } from './can-post.guard';
+import { MessagerieComponent } from './messagerie/messagerie.component';
 
 
 export const routes: Routes = [
@@ -56,7 +57,7 @@ export const routes: Routes = [
   { path : 'friends', component: FriendListComponent, title: 'friendList'},
   { path: 'membres', component:UserSearchComponent, title: 'userSearch'},
   { path : 'publications', component:MessagePostComponent, canActivate : [CanPostGuard], title: 'publications'}, 
-  
+  { path : 'discussion-privee', component : MessagerieComponent, canActivate : [MemberAdminGuard], title : 'discussion-privee'},
 
   { path: '', redirectTo: '/jo2024', pathMatch: 'full' },
 ];
