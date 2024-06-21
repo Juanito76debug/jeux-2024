@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from './Search.Service';
 import { CommonModule } from '@angular/common';
-// import { Jo2024Component } from '../jo2024/jo2024.component';
+
 import { FormControl } from '@angular/forms';
 import { debounceTime, switchMap, filter, map } from 'rxjs/operators';
-import { UserSearchModule } from './user-search.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 export interface Member {
@@ -18,7 +19,7 @@ export interface Member {
 @Component({
   selector: 'app-user-search',
   standalone: true,
-  imports: [UserSearchModule, CommonModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './user-search.component.html',
   styleUrls: ['./user-search.component.css'],
 })

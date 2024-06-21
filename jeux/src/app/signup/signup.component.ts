@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../home/auth.service';
 import { CommonModule } from '@angular/common';
-import { Jo2024Component } from '../jo2024/jo2024.component';
+
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule,Jo2024Component],
+  imports: [CommonModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })

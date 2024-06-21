@@ -17,6 +17,12 @@ import { HomeComponent } from './home/home.component';
 import { MessagePostComponent } from './message-post/message-post.component';
 import { CanPostGuard } from './can-post.guard';
 import { MessagerieComponent } from './messagerie/messagerie.component';
+import { MessengerComponent } from './messenger/messenger.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PersonnesModule } from './personnes.module';
+import { AuthService } from './home/auth.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { userModule } from './profile/user.module';
 
 
 export const routes: Routes = [
@@ -25,45 +31,31 @@ export const routes: Routes = [
   {
     path: 'reseau-social',
     component: ReseauSocialComponent,
-    title: 'reseau-social',
+    title: 'reseau-social'
   },
-  { path: 'home', component: HomeComponent, title: 'home' },
-  { path: 'about', component: AboutComponent, title: 'A propos' },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m=>m.HomeModule), title: 'Accueil' },
+  
+  
+  { path: 'discussions instantanées', component: MessengerComponent, title: 'Discussions instantanées'},
+  { path: 'personnes', loadChildren: () => import('./personnes.module').then(m => m.PersonnesModule), title: 'Utilisateurs'},
   {
-    path: 'signup',
-    component: SignupComponent,
-    canActivate: [AuthGuard],
-    title: 'inscription',
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    canActivate: [AuthGuard],
-    title: 'Connexion',
+    path: 'publications',
+    component: MessagePostComponent,
+    canActivate: [CanPostGuard],
+    title: 'publications'
   },
   {
-    path: 'forgot-password',
-    component: ForgotPasswordComponent,
-    canActivate: [AuthGuard],
-    title: 'Mot de Passe Oublié',
-  },
-  {
-    path: 'logout',
-    component: LogoutComponent,
+    path: 'discussion-privee',
+    component: MessagerieComponent,
     canActivate: [MemberAdminGuard],
-    title: 'Déconnexion',
+    title: 'discussion-privee'
   },
-  { path : 'profile', component: ProfileComponent, title: 'Profile'},
-  { path : 'friends', component: FriendListComponent, title: 'friendList'},
-  { path: 'membres', component:UserSearchComponent, title: 'userSearch'},
-  { path : 'publications', component:MessagePostComponent, canActivate : [CanPostGuard], title: 'publications'}, 
-  { path : 'discussion-privee', component : MessagerieComponent, canActivate : [MemberAdminGuard], title : 'discussion-privee'},
 
   { path: '', redirectTo: '/jo2024', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), HttpClientModule, BrowserModule, userModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

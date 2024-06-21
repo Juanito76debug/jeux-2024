@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { userModule } from './user.module';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+// import { Jo2024Component } from '../jo2024/jo2024.component';
+
+// import { CommonModule } from '@angular/common';
+// import { ReactiveFormsModule } from '@angular/forms';
+// import { HttpClientModule } from '@angular/common/http';
+// import { RouterModule } from '@angular/router';
 
 
 export interface UserProfile {
@@ -23,8 +24,8 @@ export interface UserProfile {
 
 @Component({
   selector: 'app-profile',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, userModule,RouterModule],
+  // standalone: true,
+  // imports: [CommonModule, ReactiveFormsModule, HttpClientModule, RouterModule, ],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
@@ -32,7 +33,7 @@ export class ProfileComponent {
 
   profiles: UserProfile[] = [];
 
-  @Input() userProfile: UserProfile;
+  @Input() userProfile?: UserProfile;
 
   constructor() {
     this.userProfile = this.adminProfile;

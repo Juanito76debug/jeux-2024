@@ -1,28 +1,15 @@
-import { Component, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Jo2024Component } from '../jo2024/jo2024.component';
+import { Component,} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-@Injectable({
-  providedIn: 'root'
-})
 
-export class ResetPasswordService {
 
-  constructor(private http: HttpClient) { }
+import { ResetPasswordService } from './reset-password.service';
 
-  sendResetLink(email: string) {
-
-    const resetPasswordurl = 'http://localhost:4200';
-    return this.http.post(resetPasswordurl, { email });
-
-  }
-  }
 
 @Component({
   selector: 'app-forgot-password',
   standalone: true,
-  imports: [Jo2024Component, CommonModule],
+  imports: [CommonModule],
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.css']
 })

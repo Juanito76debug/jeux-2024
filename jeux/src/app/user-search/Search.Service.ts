@@ -17,7 +17,7 @@ export class SearchService {
 
   searchMember(searchTerm: string): Observable<Member[]> {
     
-    return this.http.get<Member[]>(`https://localhost:4200/members/search/${searchTerm}`);
+    return this.http.get<Member[]>(`https://localhost:3000/members/search/${searchTerm}`);
 
   }
 

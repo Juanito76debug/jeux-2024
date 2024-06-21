@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Jo2024Component } from '../jo2024/jo2024.component';
+import { HomeComponent } from '../home/home.component';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [Jo2024Component],
+  imports: [HomeComponent, LoginComponent],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
 })

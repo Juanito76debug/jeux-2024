@@ -1,7 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 import { SearchService } from "./Search.Service";
+import { UserSearchComponent } from "./user-search.component";
+
+const routes: Routes = [
+    {path: '', component: UserSearchComponent}];
 
 
 
@@ -10,7 +14,7 @@ import { SearchService } from "./Search.Service";
 @NgModule({
 
     declarations: [],
-    imports: [CommonModule, RouterModule],
+    imports: [CommonModule, RouterModule.forChild(routes)],
     
     providers: [SearchService]
 

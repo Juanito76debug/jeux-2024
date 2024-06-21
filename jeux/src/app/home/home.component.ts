@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService, UserRole } from './auth.service';
 import { RealTimeService } from './real-time.service';
-
-
-
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 
 
 @Component({
   selector: 'app-home',
-  // standalone: true,
-  // imports: [CommonModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

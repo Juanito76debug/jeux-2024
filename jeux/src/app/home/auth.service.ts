@@ -20,17 +20,14 @@ export class AuthService {
 
   registerUser(username: string, password: string) : Observable<any>{
 
-    const apiUrl = 'your-backend-api';
-    return this.http.post(apiUrl, {username, password});
+    const apiUrl = 'http://localhost:3000/api/register';
+    return this.http.post<boolean>(apiUrl, {username, password});
   }
 
   login(username: string, password: string): Observable<boolean> {
-    return new Observable((subscriber) => {
-      const credentialsAreValid =
-        username === 'user' && password === 'password';
-      subscriber.next(credentialsAreValid);
-      subscriber.complete();
-    });
+    const apiUrl = 'http://localhost:3000/api/login';
+    return this.http.post<boolean>(apiUrl, {username, password});
+    
   }
 
   setUserRole(role: UserRole): void {
@@ -47,6 +44,7 @@ export class AuthService {
 
   logout(): void {
     this.currentUserRole.next(UserRole.Visitor);
+    this.currentUser.next(null);
   }
 
   isMemberOrAdmin(): boolean {

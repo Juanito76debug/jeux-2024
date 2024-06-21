@@ -1,0 +1,15 @@
+.app-messenger{
+
+    position: fixed;
+    bottom: 0;
+    right : 0  ; 
+    width: auto;
+    height: auto;
+    border : 1px solid #ccc;
+    background-color: white ;
+    z-index: 1000;
+    max-width: 250px;
+    max-height: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+}

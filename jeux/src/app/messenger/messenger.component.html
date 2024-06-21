@@ -1,0 +1,20 @@
+<div class="app-messenger">
+    <div class="messenger-header">
+        <h3>Messagerie</h3>
+        <button (click)="closeMessenger()">X</button>
+    </div>
+    <div class="messenger-content">
+        <ul>
+            <li *ngFor="let message of messages">
+                <div class="message" [class.mine]="message.authorId === currentUserId">
+                    <span class = "message-content">{{ message.content}}</span>
+                    <span class = "message-timestamp">{{ message.timestamp | date:'shortTime' }}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class = "messenger-input">
+        <input [(ngModel)]="newMessage" placeholder="Ecrire un message..."/>
+        <button (click)="sendMessage()">Envoyer</button>
+    </div>
+</div>

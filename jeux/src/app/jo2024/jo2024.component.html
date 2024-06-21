@@ -1,16 +1,28 @@
-
-  <nav>
-    <ul>
-      <li><a routerLink="/home">Accueil</a></li>
-      <li><a routerLink="/publications">Publications</a></li>
-      <li><a routerLink="/information">Information</a></li>
-      <li><a routerLink="/membres">Membres</a></li>
-      <li><a routerLink="/evénements">Événements</a></li>
-      <li><a (click)="openGallery()">Photos</a></li>
-      <li><a routerLink="/discussion-privee">Discussion privée</a></li>
-      
+<nav>
+  <ul>
+    <li><a routerLink="/home">Accueil</a></li>
     </ul>
-  </nav>
+    </nav>
+    <div *ngIf="isHomePage">
+      <ul>
+        <li><a routerLink="/about">À propos</a></li>
+        <li><a routerLink="/signup">Inscription</a></li>
+        <li><a routerLink="/login">Connexion</a></li>
+        <li><a routerLink="/forgot-password">Mot de Passe oublié</a></li>
+        <li><a routerLink="/logout">Déconnexion</a></li>
+      </ul>
+    </div>
+    <nav>
+    <ul>
+        <li><a href="/publications" target="_blank">Publications</a></li>
+    <li><a href="/information" target="_blank">Information</a></li>
+    <li><a routerLink="/personnes">Utilisateurs</a></li>
+    <li><a href="/evénements" target="_blank">Événements</a></li>
+    <li><a (click)="openGallery()">Photos</a></li>
+    <li><a href="/discussion-privee" target="_blank">Discussion privée</a></li>
+    <li><a routerLink="/messenger">Messenger</a></li>
+  </ul>
+</nav>
 
 <main>
   <section>
@@ -27,10 +39,12 @@
       2024 à Paris
     </p>
   </aside>
- 
 </main>
 <footer>
   <p>
     &copy; 2024 Réseau Social des Jeux Olympiques 2024. Tous droits réservés
   </p>
 </footer>
+
+
+
