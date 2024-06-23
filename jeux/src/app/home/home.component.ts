@@ -3,14 +3,12 @@ import { AuthService, UserRole } from './auth.service';
 import { RealTimeService } from './real-time.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-
-
+import { Jo2024Component } from '../jo2024/jo2024.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, Jo2024Component],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

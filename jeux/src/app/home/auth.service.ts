@@ -13,21 +13,20 @@ export enum UserRole {
   providedIn: 'root',
 })
 export class AuthService {
+  private apiUrl = 'http://localhost:3000/api/auth';
   private currentUserRole = new BehaviorSubject<UserRole>(UserRole.Visitor);
-  private currentUser= new BehaviorSubject<User | null>(null);
+  private currentUser = new BehaviorSubject<User | null>(null);
 
   constructor(private http: HttpClient) {}
 
-  registerUser(username: string, password: string) : Observable<any>{
-
+  registerUser(username: string, password: string): Observable<any> {
     const apiUrl = 'http://localhost:3000/api/register';
-    return this.http.post<boolean>(apiUrl, {username, password});
+    return this.http.post<boolean>(apiUrl, { username, password });
   }
 
   login(username: string, password: string): Observable<boolean> {
     const apiUrl = 'http://localhost:3000/api/login';
-    return this.http.post<boolean>(apiUrl, {username, password});
-    
+    return this.http.post<boolean>(apiUrl, { username, password });
   }
 
   setUserRole(role: UserRole): void {
@@ -48,21 +47,23 @@ export class AuthService {
   }
 
   isMemberOrAdmin(): boolean {
-
-    return this.currentUserRole.value === UserRole.Member || this.currentUserRole.value === UserRole.Admin;
+    return (
+      this.currentUserRole.value === UserRole.Member ||
+      this.currentUserRole.value === UserRole.Admin
+    );
   }
 
   isAdmin(): boolean {
     return this.currentUserRole.value === UserRole.Admin;
   }
-getCurrentUserId(): string | null {
-  return this.currentUser.value?.id || null;
-}
-canEditMessage(message:any): boolean {
-  const currentUser = this.currentUser.value;
-  if (currentUser) {
-    return message.authorId === currentUser.id || this.isAdmin();
+  getCurrentUserId(): string | null {
+    return this.currentUser.value?.id || null;
   }
-  return false;
-}
+  canEditMessage(message: any): boolean {
+    const currentUser = this.currentUser.value;
+    if (currentUser) {
+      return message.authorId === currentUser.id || this.isAdmin();
+    }
+    return false;
+  }
 }

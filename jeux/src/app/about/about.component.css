@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  margin: 0 auto;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  :host {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 767px) {
+  :host {
+    max-width: 100%;
+  }
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.5em;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+}

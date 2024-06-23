@@ -27,3 +27,9 @@
 .member-info {
   margin-top: 10px;
 }
+
+@media (max-width: 768px) {
+  .member-item {
+    width: 100%; /* Pleine largeur sur les petits écrans */
+  }
+}

@@ -1,15 +1,15 @@
-
-
 body {
   font-family: Arial, sans-serif;
 }
 
 nav ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 nav li {
-  display: inline;
+  display: inline-block;
   margin-right: 20px;
 }
 
@@ -28,4 +28,33 @@ footer {
 section,
 aside {
   margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  nav li {
+    display: block;
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  header,
+  main,
+  aside,
+  footer {
+    padding: 10px;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+  nav li {
+    margin-bottom: 5px;
+  }
+  section,
+  aside {
+    margin-bottom: 10px;
+  }
 }

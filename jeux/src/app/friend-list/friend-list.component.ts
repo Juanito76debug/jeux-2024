@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { FriendService } from './friendService';
-import { FormControl, ReactiveFormsModule} from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 // import { Jo2024Component } from '../jo2024/jo2024.component';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+// import { CommonModule } from '@angular/common';
+// import { RouterModule } from '@angular/router';
 
 export interface Friend {
   pseudonyme: string;
@@ -22,7 +22,7 @@ export interface Friend {
 @Component({
   selector: 'app-friend-list',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './friend-list.component.html',
   styleUrls: ['./friend-list.component.css'],
 })
@@ -32,7 +32,7 @@ export class FriendListComponent implements OnInit {
 
   filterControl = new FormControl('');
 
-  @Input ()
+  @Input()
   set friends(value: Friend[]) {
     if (value) {
       this._friends = value;
@@ -42,8 +42,8 @@ export class FriendListComponent implements OnInit {
         this._friends = data;
         this.filteredfriends = data; // Initialisez `filteredfriends` avec toutes les données
       });
+    }
   }
-}
 
   get friends(): Friend[] {
     return this._friends;
@@ -52,16 +52,16 @@ export class FriendListComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this._friends.length) {
-    this.friendService.getFriends().subscribe((data: Friend[]) => {
-      this.friends = data;
-      this.filteredfriends = data; // Initialisez `filteredfriends` avec toutes les données
-    });
-  }
+      this.friendService.getFriends().subscribe((data: Friend[]) => {
+        this.friends = data;
+        this.filteredfriends = data; // Initialisez `filteredfriends` avec toutes les données
+      });
+    }
 
     this.filterControl.valueChanges.subscribe((searchTerm) => {
       if (searchTerm) {
         this.filteredfriends = this._friends.filter((friend) =>
-          friend.pseudonyme.toLowerCase().includes(searchTerm.toLowerCase()) 
+          friend.pseudonyme.toLowerCase().includes(searchTerm.toLowerCase())
         );
       } else {
         this.filteredfriends = this._friends;

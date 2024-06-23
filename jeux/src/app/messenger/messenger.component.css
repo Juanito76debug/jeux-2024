@@ -1,15 +1,22 @@
-.app-messenger{
+.app-messenger {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  background-color: white;
+  z-index: 1000;
+  max-width: 250px;
+  max-height: 60px;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
 
-    position: fixed;
-    bottom: 0;
-    right : 0  ; 
-    width: auto;
-    height: auto;
-    border : 1px solid #ccc;
-    background-color: white ;
-    z-index: 1000;
-    max-width: 250px;
-    max-height: 60px;
-    padding: 10px;
-    box-sizing: border-box;
+@media (max-width: 768px) {
+  .app-messenger {
+    max-width: none;
+    max-height: 300px;
+  }
 }

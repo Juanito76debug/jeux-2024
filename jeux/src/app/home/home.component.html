@@ -1,7 +1,13 @@
 <div class="home-container">
-  <div *ngIf="userRole">
+  <div *ngIf="userRole" class="welcome-message">
     <h1>Bienvenue sur le réseau social des Jeux Olympiques 2024</h1>
-    <p>Nombre de message publiés : {{ messageCount }}</p>
-    <p>Nombre de membres connectés : {{ connectedMemberscount }}</p>
+  </div>
+  <div class="stats" *ngIf="userRole !== 'visitor'">
+    <div class="stat-item">
+      <p>Nombre de messages publiés : {{ messageCount }}</p>
+    </div>
+    <div class="stat-item">
+      <p>Nombre de membres connectés : {{ connectedMemberscount }}</p>
+    </div>
   </div>
 </div>

@@ -1,0 +1,23 @@
+.signup.form {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.success-message,
+.error-message {
+  color: green;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+}
+
+@media (max-width: 768px) {
+  .signup-form {
+    padding: 10px;
+  }
+}
