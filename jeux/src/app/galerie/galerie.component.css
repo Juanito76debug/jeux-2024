@@ -36,13 +36,13 @@
   }
 
   .gallery-item {
-    width: cal(50%-10px);
+    width: calc(50% - 10px);
     padding: 5px;
   }
 }
 
 @media (min-width: 1024px) {
   .gallery-item {
-    width: cal(33.33%-10px);
+    width: calc(33.33% - 10px);
   }
 }

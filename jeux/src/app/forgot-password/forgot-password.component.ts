@@ -1,5 +1,6 @@
 import { Component,} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { WsService } from '../services/ws.service';
 
 
 
@@ -14,27 +15,28 @@ import { ResetPasswordService } from './reset-password.service';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent {
+  email: string = '';
 successMessage: string='';
   errorMessage: string='';
 
-  constructor (private resetPasswordService: ResetPasswordService) { }
+  constructor (private wsService: WsService) { }
 
-  resetPassword(email: string){
+  resetPassword(email: string): void {
 
-    this.resetPasswordService.sendResetLink(email).subscribe(
-      (response) => {
-        this.successMessage = 'Un lien de réinitialisation de mot de passe vous a été envoyé par email';
+    this.wsService.emit('reset-password', { email: this.email });
+
+    // Écouter la réponse du serveur via WebSocket
+    this.wsService.listen<any>('password-reset-response').subscribe((response) => {
+      if (response.success) {
+        this.successMessage = 'Un lien de réinitialisation de mot de passe a été envoyé à votre adresse e-mail.';
         this.errorMessage = '';
-        console.log(response);
-      },
-      (error) => {
-        this.errorMessage ="Une erreur est survenue lors de l'envoi du lien de ma réinitialisation.";
+      } else {
+        this.errorMessage = 'Une erreur est survenue lors de la réinitialisation du mot de passe.';
         this.successMessage = '';
-        console.log(error);
       }
-    );
-
+  });
 
   }
+  }
 
-}
+

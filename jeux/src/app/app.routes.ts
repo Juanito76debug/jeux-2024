@@ -23,7 +23,7 @@ import { PersonnesModule } from './personnes.module';
 import { AuthService } from './home/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { userModule } from './profile/user.module';
-
+import { MembersModule } from './members.module';
 
 export const routes: Routes = [
   { path: 'galerie', component: GalerieComponent, title: 'galerie' },
@@ -55,7 +55,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), HttpClientModule, BrowserModule, userModule],
+  imports: [RouterModule.forRoot(routes), HttpClientModule, BrowserModule, userModule, MembersModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
